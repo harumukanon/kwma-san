@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>KWMA-san LOD</title>
+    <title>くまさんLOD</title>
     <!-- BootstrapのCSS読み込み -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!-- jQuery読み込み -->
@@ -37,9 +37,101 @@
 	
       <div class="row">
       <div class="col-md-12">
-          <h2>LOD語彙</h2>
+          <h2>KWMA-san LOD モデル図</h2>
 	  <p>
-　　　　　　KWMA-san用のメタデータ語彙と，漢字文化圏の人名や資料タイトルを複数の表記形で表記するためのメタデータ語彙を独自に定義しています。 
+          KWMA-san LOD用のメタデータ語彙(プレフィックスは<code>kwma:</code>)と，漢字文化圏の人名や資料タイトルを複数の表記形で表記するためのメタデータ語彙（語彙定義URIはhttp://purl.org/nonroman-representations#,プレフィックスは<code>rep:</code>を独自に定義しています。
+	  </p>
+          <p>
+          そのほかに，SKOSXL(http://www.w3.org/2008/05/skos-xl#), DCMI Metadata Terms(http://dublincore.org/documents/2012/06/14/dcmi-terms/), DC-NDL(http://ndl.go.jp/dcndl/terms/), FRBR(http://iflastandards.info/ns/fr/frbr/frbrer/)などの語彙を用いています。
+	  </p>
+	  <p><img class="img-responsive img-rounded" src="LOD_picture.gif" alt="くまさんLODモデル"></p>
+
+	  <h2>LOD語彙</h2>
+	  <h4>著作をあらわすリソースのURI</h4>
+	  <p>
+          著作を表すリソースのURIは以下のように表現されます。<code>http://purl.org/kwma-san/<ver>著作ID</ver></code>
+	  </p>
+	  <h4>著作リソースが持つプロパティ</h4>
+	  <p>著作リソースが持つプロパティを下表に示します。</p>
+<table class="table">
+            <tr>
+              <th>プロパティ名</th><th>説明</th><th>プロパティ値の例</th><th>備考</th>
+            </tr>
+            <tbody>
+            <tr>
+              <td><code>kwma:workId</code></td>
+              <td>著作ID</td>
+              <td>199</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><code>skosxl:prefLabel</code></td>
+              <td>典拠形アクセスポイント</td>
+              <td></td>
+		<td><code>skosxl:literalForm</code>, <code>rep:transliteration</code>, <code>rep:transcription</code>, <code>rep:romanization</code>のうち1つ以上の値を構造化するため空白ノートをとる。</td>
+            </tr>
+            <tr>
+              <td><code>skosxl:altLabel</code></td>
+              <td>参照形アクセスポイント</td>
+		    <td></td>
+	<td><code>skosxl:literalForm</code>, <code>rep:hasTransliteration</code>, <code>rep:hasTranscription</code>, <code>rep:hasRomanization</code>のうち1つ以上の値を構造化するため空白ノートをとる。</td>
+            </tr>
+            <tr>
+              <td><code>skosxl:literalForm</code></td>
+              <td>主表記形</td>
+              <td>九數通考</td>
+              <td>典拠形アクセスポイントの主表記形は必ず繁体字形となる。</td>
+            </tr>
+            <tr>
+              <td><code>rep:hasTransliteration</code></td>
+              <td>翻字形</td>
+              <td>九数通考</td>
+              <td>例えば，主表記形が繁体字形だった場合，簡体字形を入力。</td>
+            </tr>
+            <tr>
+              <td><code>rep:hasTranscription</code></td>
+              <td>翻音形</td>
+              <td>キュウスウ ツウコウ</td>
+              <td>例えば，主表記形が日本漢字形だった場合，ヨミ（ワカチをも行う）形を入力。</td>
+            </tr>
+            <tr>
+              <td><code>rep:hasRomanization</code></td>
+              <td>ローマ字形</td>
+              <td>jiu shu tong kao</td>
+              <td>例えば，主表記形が繁体字だった場合，漢語ピンイン（声調記号なし）を入力。</td>
+            </tr>
+            <tr>
+              <td><code>kwma:workAuthor</code></td>
+              <td>著作の著者</td>
+              <td>屈曾發</td>
+              <td></td>
+            </tr>
+            <tr>
+	      <td><code>kwma:workNote</code></td>
+              <td>著作の注記</td>
+              <td>十三卷 淸常熟屈曾發撰 淸同治十年學海堂刊本</td>
+              <td>『同书异名汇录』から選定された典拠形アクセスポイントとなった書名に付記されている事項をすべて繁体字で転記。体現形レベルの情報であるが，個別資料リンクの参考となるため採用した。</td>
+            </tr>
+            <tr>
+              <td>kwma:workContents</td>
+              <td>著作の内容</td>
+              <td></td>
+              <td>内容にかかわる事項を追記するための項目だが，現在は原則として不使用。</td>
+            </tr>
+            <tr>
+              <td>kwma:hasItem</td>
+              <td>個別資料</td>
+              <td>http://purl.org/zo-san/items/613</td>
+              <td>当該著作を具現化する個別資料のリソースURIを示す。</td>
+            </tr>
+            </tbody>
+          </table>
+	  <h4>個別資料をあらわすリソースのURI</h4>
+          <p>
+          個別資料を表すリソースのURIは以下のように表現されます。<code>http://purl.org/zo-san/items/<ver>アイテムID</ver></code>
+	  </p>
+          <p>
+	                 
 	  </p>
        </div>
        </div>
