@@ -45,7 +45,7 @@
           そのほかに，SKOSXL(http://www.w3.org/2008/05/skos-xl#), DCMI Metadata Terms(http://dublincore.org/documents/2012/06/14/dcmi-terms/), DC-NDL(http://ndl.go.jp/dcndl/terms/), FRBR(http://iflastandards.info/ns/fr/frbr/frbrer/)などの語彙を用いています。
 	  </p>
 	  <p><img class="img-responsive img-rounded" src="LOD_picture.gif" alt="くまさんLODモデル"></p>
-
+	  <p>全ての著作タイトルの文字列（リテラル）には，IETF言語タグが付きます。</p>
 	  <h2>LOD語彙</h2>
 	  <h4>著作をあらわすリソースのURI</h4>
 	  <p>
@@ -113,13 +113,13 @@
               <td>『同书异名汇录』から選定された典拠形アクセスポイントとなった書名に付記されている事項をすべて繁体字で転記。体現形レベルの情報であるが，個別資料リンクの参考となるため採用した。</td>
             </tr>
             <tr>
-              <td>kwma:workContents</td>
+	      <td><code>kwma:workContents</code></td>
               <td>著作の内容</td>
               <td></td>
               <td>内容にかかわる事項を追記するための項目だが，現在は原則として不使用。</td>
             </tr>
             <tr>
-              <td>kwma:hasItem</td>
+	      <td><code>kwma:hasItem</code></td>
               <td>個別資料</td>
               <td>http://purl.org/zo-san/items/613</td>
               <td>当該著作を具現化する個別資料のリソースURIを示す。</td>
