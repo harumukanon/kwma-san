@@ -44,6 +44,7 @@
           <p>
           そのほかに，SKOSXL(http://www.w3.org/2008/05/skos-xl#), DCMI Metadata Terms(http://dublincore.org/documents/2012/06/14/dcmi-terms/), DC-NDL(http://ndl.go.jp/dcndl/terms/), FRBR(http://iflastandards.info/ns/fr/frbr/frbrer/)などの語彙を用いています。
 	  </p>
+	  <p>KWMA-san LODのモデル図を下記に示します。下図では一部省略されているプロパティがあります。詳細はこのページのプロパティ一覧でご確認ください。</p>
 	  <p><img class="img-responsive img-rounded" src="LOD_picture.gif" alt="くまさんLODモデル"></p>
 	  <p>全ての著作タイトルの文字列（リテラル）には，IETF言語タグが付きます。</p>
 	  <p>※言語タグがzh(中国語)のときのローマ字形は，漢語ピンインに統一します。また,中国語以外の言語の表記形に対しローマ字形は付与していません。</p>
@@ -133,6 +134,67 @@
 	  </p>
 	  <h4>個別資料リソースが持つプロパティ</h4>
 	  <p>個別資料リソースが持つプロパティを下表に示します。</p>
+<table class="table">
+            <tr>
+              <th>プロパティ名</th><th>説明</th><th>プロパティ値の例</th><th>備考</th>
+            </tr>
+            <tbody>
+            <tr>
+              <td><code>kwma:itemId</code></td>
+              <td>個別資料ID</td>
+              <td>613</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><code>dcterms:title</code></td>
+              <td>タイトル</td>
+              <td>九數通考 11卷首1卷末1卷</td>
+              <td>個別資料のタイトル。CiNii Books書誌の「図書タイトル」をそのまま転記。</td>
+            </tr>
+            <tr>
+              <td><code>dcterms:alternative</code></td>
+              <td>別タイトル</td>
+	      <td>重刊九數通考</td>
+	      <td>個別資料の別タイトル。CiNii Books書誌の「別タイトル」をそのまま転記。複数ある場合は繰り返す。</td>
+            </tr>
+            <tr>
+	      <td><code>dcterms:creator</code></td>
+              <td>作成者</td>
+              <td>(清)屈曾發撰</td>
+              <td>CiNii Books書誌の「責任表示」をそのまま転記。「(清)」などの王朝名と，「撰」などの役割表示を含む。</td>
+            </tr>
+            <tr>
+	      <td><code>dcterms:date</code></td>
+              <td>刊年</td>
+              <td>1872</td>
+              <td>CiNii Books書誌の「出版年」をそのまま転記。</td>
+            </tr>
+            <tr>
+              <td><code>dcterms:publisher</code></td>
+              <td>出版者</td>
+              <td>[從元孫屈承榦]</td>
+              <td>CiNii Books書誌の「出版者」をそのまま転記。</td>
+            </tr>
+            <tr>
+              <td><code>dcndl:holdingAgent</code></td>
+              <td>所蔵館</td>
+              <td>東京大学 東洋文化研究所 図書室</td>
+              <td>CiNii Books書誌の「所蔵館名」をそのまま転記。</td>
+            </tr>
+            <tr>
+              <td><code>kwma:itemNote</code></td>
+              <td>個別資料の注記</td>
+              <td>【ヨミ】キュウスウ ツウコウ</td>
+              <td>CiNii Books書誌の「タイトルのよみ」と，「親書誌のタイトル」を参考情報として転記。</td>
+            </tr>
+            <tr>
+	      <td><code>kwma:isCinii</code></td>
+              <td>CiNii URI</td>
+              <td>http://ci.nii.ac.jp/ncid/BB17351645</td>
+              <td>個別資料がCiNii Books書誌レコード由来である場合，当該書誌レコードのURIを転記。</td>
+	    </tr>
+            </tbody>
+          </table>
        </div>
        </div>
 </div>
